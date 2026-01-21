@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>NoMachine Password Decoder - Decrypt Scrambled NXS Passwords Online</title>
+    <meta name="title" content="NoMachine Password Decoder - Decrypt Scrambled NXS Passwords Online">
+    <meta name="description" content="Free online tool to decode and decrypt scrambled passwords from NoMachine profile files (.nxs). Instantly unscramble NoMachine authentication credentials with our secure password decoder.">
+    <meta name="keywords" content="NoMachine, password decoder, NXS file, password unscrambler, NoMachine password, decrypt password, scrambled password, remote desktop, NX protocol">
+    <meta name="author" content="NoMachine Password Decoder">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://avin.github.io/nomachine-password-decode/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://avin.github.io/nomachine-password-decode/">
+    <meta property="og:title" content="NoMachine Password Decoder - Decrypt Scrambled NXS Passwords">
+    <meta property="og:description" content="Free online tool to decode scrambled passwords from NoMachine profile files. Quick, secure, and easy to use password decoder for NXS files.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://avin.github.io/nomachine-password-decode/">
+    <meta property="twitter:title" content="NoMachine Password Decoder - Decrypt NXS Passwords">
+    <meta property="twitter:description" content="Decode scrambled passwords from NoMachine profile files instantly. Free online password decoder tool.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "NoMachine Password Decoder",
+      "url": "https://avin.github.io/nomachine-password-decode/",
+      "description": "Free online tool to decode and decrypt scrambled passwords from NoMachine profile files (.nxs)",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "NoMachine Password Decoder"
+      }
+    }
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        .container {
+            max-width: 650px;
+        }
+        .card {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            border: none;
+            overflow: hidden;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            color: #2c3e50;
+            border-radius: 0 !important;
+            padding: 25px 20px;
+            border-bottom: 3px solid #95a5a6;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
+        .card-header h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        .result-box {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 6px;
+            padding: 15px;
+            min-height: 60px;
+            word-wrap: break-word;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: #155724;
+        }
+        .alert {
+            border-radius: 6px;
+        }
+        .btn-decode {
+            background:  #bb1601;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 6px;
+        }
+        .btn-decode:hover {
+            background: #e00000;
+        }
+        .form-label {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .form-control {
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+        }
+        .form-control:focus {
+            border-color: #7f8c8d;
+            box-shadow: 0 0 0 0.2rem rgba(127, 140, 141, 0.25);
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .instructions {
+            background-color: #f8f9fa;
+            border-left: 4px solid #7f8c8d;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                background: #fff;
+                padding: 0;
+                align-items: flex-start;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .card {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .card-header {
+                border-radius: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <article class="card">
+            <header class="card-header">
+                <div class="logo-container">
+                    <img src="logo.png" alt="NoMachine Logo - Remote Desktop Password Decoder" width="50" height="50">
+                </div>
+                <h1 class="text-center">NoMachine Password Decoder</h1>
+            </header>
+            <section class="card-body p-4">
+                <div class="mb-3">
+                    <label for="scrambledPassword" class="form-label fw-bold">Scrambled Password:</label>
+                    <textarea 
+                        class="form-control" 
+                        id="scrambledPassword" 
+                        rows="3" 
+                        placeholder="Paste your scrambled NoMachine password here..."
+                        aria-label="Enter scrambled NoMachine password from NXS file"
+                        aria-describedby="passwordHelp"
+                    ></textarea>
+                    <small id="passwordHelp" class="text-muted">Enter the scrambled password from NoMachine profile file (*.nxs)</small>
+                </div>
+                
+                <div class="d-grid gap-2 mb-3">
+                    <button type="button" class="btn btn-primary btn-decode" onclick="decodePassword()" aria-label="Decode NoMachine password">
+                        🔓 Decode Password
+                    </button>
+                </div>
+
+                <div id="resultContainer" style="display: none;" role="region" aria-live="polite">
+                    <label class="form-label fw-bold" for="result">Decrypted Password:</label>
+                    <div class="result-box" id="result" aria-label="Decrypted password result"></div>
+                </div>
+
+                <div id="errorContainer" class="alert alert-danger" role="alert" aria-live="assertive" style="display: none;">
+                    <strong>Error!</strong> <span id="errorMessage"></span>
+                </div>
+
+                <aside class="mt-4 pt-3 border-top instructions">
+                    <h2 class="fw-bold mb-2 h6">How to Decode NoMachine Password:</h2>
+                    <ol class="small mb-0">
+                        <li>Locate your NoMachine profile file with .nxs extension</li>
+                        <li>Open the file and find <code>&lt;option key="Auth" value="..."</code></li>
+                        <li>Copy the scrambled password value</li>
+                        <li>Paste it in the text area above and click "Decode Password"</li>
+                        <li>Your decrypted NoMachine password will be displayed instantly</li>
+                    </ol>
+                </aside>
+            </section>
+        </article>
+    </main>
+
+    <script>
+        // Valid character set for encoding
+        const CHARSET = "!#$%&()*+-.0123456789:;<>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]_abcdefghijklmnopqrstuvwxyz{|}";
+        
+        // Character set helper functions
+        const charIndex = (char) => CHARSET.indexOf(char);
+        const charAt = (index) => CHARSET[index];
+        
+        // Replace HTML entities
+        const cleanInput = (text) => {
+            const entities = {
+                '&amp;': '&',
+                '&quot;': '"',
+                '&apos;': "'",
+                '&lt;': '<',
+                '&gt;': '>'
+            };
+            return text.replace(/&[a-z]+;/g, match => entities[match] || match);
+        };
+
+        // Calculate decryption key
+        const calculateKey = (firstChar, offset) => {
+            const baseIndex = charIndex(':');
+            const len = CHARSET.length;
+            
+            for (let key = 0; key < 200; key++) {
+                const pos = (baseIndex + key * (offset + 2)) % len;
+                if (charAt(pos) === firstChar) return key;
+            }
+            return -1;
+        };
+
+        // Decode single character
+        const decodeChar = (char, key, position) => {
+            const encoded = charIndex(char);
+            const len = CHARSET.length;
+            
+            for (let i = 0; i < len; i++) {
+                const expected = (i + key * (position + 1)) % len;
+                if (encoded === expected) return charAt(i);
+            }
+            return '';
+        };
+
+        // Convert number string to password
+        const numbersToPassword = (numString) => {
+            const parts = numString.split(':').filter(p => p);
+            let result = '';
+            
+            for (let i = 0; i < parts.length; i++) {
+                if (!/^\d+$/.test(parts[i])) return null;
+                const code = parseInt(parts[i]) - i - 1;
+                result += String.fromCharCode(code);
+            }
+            return result;
+        };
+
+        // Main decryption function
+        const decrypt = (encoded) => {
+            const input = cleanInput(encoded);
+            
+            // Try different trimming variants
+            const variants = [
+                { text: input.slice(1, -1), offset: 0 },
+                { text: input.slice(5, -1), offset: 4 },
+                { text: input.slice(5, -5), offset: 4 }
+            ];
+
+            for (const {text, offset} of variants) {
+                const key = calculateKey(text[0], offset);
+                let decoded = '';
+                
+                // Decode each character
+                for (let i = 0; i < text.length; i++) {
+                    decoded += decodeChar(text[i], key, offset + i + 1);
+                }
+                
+                // Reverse and convert
+                const reversed = decoded.split('').reverse().join('');
+                const password = numbersToPassword(reversed);
+                
+                if (password) return password;
+            }
+            
+            return null;
+        };
+
+        // UI functions
+        const showResult = (text) => {
+            document.getElementById('result').textContent = text;
+            document.getElementById('resultContainer').style.display = 'block';
+            document.getElementById('errorContainer').style.display = 'none';
+        };
+
+        const showError = (message) => {
+            document.getElementById('errorMessage').textContent = message;
+            document.getElementById('errorContainer').style.display = 'block';
+            document.getElementById('resultContainer').style.display = 'none';
+        };
+
+        // Main password decoding function
+        function decodePassword() {
+            const input = document.getElementById('scrambledPassword').value.trim();
+            
+            if (!input) {
+                showError('Please enter a scrambled password.');
+                return;
+            }
+
+            try {
+                const password = decrypt(input);
+                
+                if (password) {
+                    showResult(password);
+                } else {
+                    showError('Failed to decode password. Please check the input is correct.');
+                }
+            } catch (error) {
+                showError('An error occurred while decoding: ' + error.message);
+            }
+        }
+
+        // Handle Enter key press
+        document.getElementById('scrambledPassword').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                decodePassword();
+            }
+        });
+    </script>
+</body>
+</html>
