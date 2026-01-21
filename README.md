@@ -1,3 +1,5 @@
+<img src="logo.png" alt="Logo" width="400">
+
 # NoMachine Password Decoder
 
 Web-based tool to decode NoMachine scrambled passwords.
